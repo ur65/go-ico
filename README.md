@@ -1,6 +1,6 @@
 # go-ico
 
-An ICO file decoder in pure Go.
+Go library for decoding ICO files.
 
 ## References
 
