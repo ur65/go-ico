@@ -327,7 +327,7 @@ func (d *decoder) decode(r io.Reader) (image.Image, error) {
 		return d.decode32(r)
 	}
 
-	return nil, fmt.Errorf("bmp: the bpp decode fucntion isn't implemented (got: %d)", d.bpp)
+	return nil, fmt.Errorf("bmp: the bpp decode function isn't implemented (got: %d)", d.bpp)
 }
 
 // Decode reads a BMP image form io.Reader and returns an image.Image
