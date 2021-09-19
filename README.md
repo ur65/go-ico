@@ -1,6 +1,7 @@
 # go-ico
 
 [![go reference](https://pkg.go.dev/badge/github.com/ur65/go-ico.svg)](https://pkg.go.dev/github.com/ur65/go-ico)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ur65/go-ico)](https://goreportcard.com/report/github.com/ur65/go-ico)
 
 Go library for decoding ICO files.
 
