@@ -32,7 +32,9 @@ type header struct {
 
 func readHeader(r io.Reader) (header, error) {
 	h := header{}
-	binary.Read(r, binary.LittleEndian, &h)
+	if err := binary.Read(r, binary.LittleEndian, &h); err != nil {
+		return header{}, err
+	}
 
 	if h.ImageType != 1 {
 		return h, fmt.Errorf("ico: image type should be 1 (got: %d)", h.ImageType)
@@ -59,7 +61,9 @@ type directory struct {
 func readDirectoris(r io.Reader, size int) ([]directory, error) {
 	ds := make([]directory, size)
 
-	binary.Read(r, binary.LittleEndian, ds)
+	if err := binary.Read(r, binary.LittleEndian, ds); err != nil {
+		return nil, err
+	}
 
 	return ds, nil
 }
