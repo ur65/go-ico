@@ -87,9 +87,19 @@ func newBMPReader(dir directory, data []byte) (xor, and *bmpReader, err error) {
 		psize = (1 << ih.BitCount) * 4
 	}
 
+	w := uint(dir.Width)
+	// when width is 0, it is treated as 256 instead.
+	if w == 0 {
+		w = 256
+	}
 	// width must be an integer multiple of 4 bytes
-	w := (uint(dir.Width)*uint(ih.BitCount) + 31) / 32 * 4
+	w = (w*uint(ih.BitCount) + 31) / 32 * 4
+
 	h := uint(dir.Height)
+	// when height is 0, it is treated as 256 instead.
+	if h == 0 {
+		h = 256
+	}
 
 	xorSize := psize + (w * h)
 
